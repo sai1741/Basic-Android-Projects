@@ -93,7 +93,7 @@ fun IntroScreen() {
                 }
             }
             Button(
-                onClick = { /*TODO*/ }, modifier = Modifier
+                onClick = {  }, modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp, bottom = 30.dp)
                     .align(Alignment.BottomCenter)
