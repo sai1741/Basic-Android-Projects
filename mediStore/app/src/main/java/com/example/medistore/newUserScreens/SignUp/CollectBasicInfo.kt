@@ -1,4 +1,4 @@
-package com.example.medistore.newUserScreens
+package com.example.medistore.newUserScreens.SignUp
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -7,13 +7,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
-import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material3.Button
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -24,99 +23,86 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.medistore.R
 
 @Preview(showSystemUi = true)
 @Composable
-fun Login() {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize()
-    ) {
 
+//collecting Name , Email , Phone Number
+
+fun CollectBasicInfo(){
+    Column(modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+        ) {
         Image(
             painter = painterResource(id = R.drawable.midi_logo),
             contentDescription = "mediStore logo",
             Modifier.size(200.dp)
         )
-
-        Spacer(modifier = Modifier.height(0.dp))
-
         Text(
-            text = "Welcome,",
+            text = "Create Account,",
             fontSize = MaterialTheme.typography.headlineMedium.fontSize,
             fontWeight = FontWeight.ExtraBold,
             color = MaterialTheme.colorScheme.primary,
         )
         Text(
-            text = "Glad to see you again",
+            text = "to get started now!",
             fontSize = MaterialTheme.typography.headlineMedium.fontSize,
             color = MaterialTheme.colorScheme.primary,
         )
-        Spacer(modifier = Modifier.height(50.dp))
-        OutlinedTextField(value = "",
-            onValueChange = {},
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(0.8f),
+        Spacer(modifier = Modifier.height(40.dp))
+        OutlinedTextField(value = "", onValueChange = {},
+            label = { Text(text = "Name")},
             shape = RoundedCornerShape(50),
-            label = { Text(text = "Email") },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
+            modifier = Modifier.fillMaxWidth(0.8f),
             leadingIcon = {
-                Icon(
-                    imageVector = Icons.Filled.Email,
-                    contentDescription = "email",
-                    tint = MaterialTheme.colorScheme.primary
-                )
+                Icon(imageVector = Icons.Filled.Email, contentDescription = "Email",
+                    tint = MaterialTheme.colorScheme.primary)
+            }
+            )
+        OutlinedTextField(value = "", onValueChange = {},
+            label = { Text(text = "Email")},
+            shape = RoundedCornerShape(50),
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            modifier = Modifier.fillMaxWidth(0.8f),
+            leadingIcon = {
+                Icon(imageVector = Icons.Filled.Email, contentDescription = "Email",
+                    tint = MaterialTheme.colorScheme.primary)
             }
         )
-        OutlinedTextField(value = "",
-            onValueChange = {},
-            modifier = Modifier.fillMaxWidth(0.8f),
+        OutlinedTextField(value = "", onValueChange = {},
+            label = { Text(text = "Phone Number")},
             shape = RoundedCornerShape(50),
             singleLine = true,
-            label = { Text(text = "Password") },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+            modifier = Modifier.fillMaxWidth(0.8f),
             leadingIcon = {
-                Icon(
-                    imageVector = Icons.Filled.Lock,
-                    contentDescription = "Password",
-                    tint = MaterialTheme.colorScheme.primary
-                )
-            },
-            trailingIcon = {
-                Icon(
-                    painterResource(id = R.drawable.show_password),
-                    contentDescription = "show password",
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.padding(end = 15.dp)
-                )
-            })
-        Spacer(modifier = Modifier.height(4.dp))
-        Text(
-            text = "Forgot Password ?",
-            fontWeight = FontWeight.W600,
-            modifier = Modifier
-                .align(Alignment.End)
-                .padding(end = 45.dp),
-            color = Color(0xFF485DE2)
+                Icon(imageVector = Icons.Filled.Email, contentDescription = "Email",
+                    tint = MaterialTheme.colorScheme.primary)
+            }
         )
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(30.dp))
         Button(
             onClick = { /*TODO*/ }, modifier = Modifier
                 .fillMaxWidth(0.8f)
                 .height(50.dp)
         ) {
-            Text(text = "Login", fontSize = MaterialTheme.typography.bodyLarge.fontSize)
+            Text(text = "Next", fontSize = MaterialTheme.typography.bodyLarge.fontSize)
         }
         Spacer(modifier = Modifier.height(20.dp))
         HorizontalDivider(
             thickness = 1.dp,
             modifier = Modifier.fillMaxWidth(0.5f)
         )
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(20.dp))
         OutlinedButton(
             onClick = { /*TODO*/ }, modifier = Modifier
                 .fillMaxWidth(0.8f)
@@ -127,12 +113,12 @@ fun Login() {
                 contentDescription = "login with google"
             )
         }
-        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(70.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(text = "Don't have an account?")
+            Text(text = "Already have account?")
             Spacer(modifier = Modifier.width(10.dp))
             OutlinedButton(onClick = {}) {
-                Text(text = "Sign up")
+                Text(text = "Login")
             }
         }
     }

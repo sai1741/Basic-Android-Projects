@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import com.example.medistore.newUserScreens.IntroScreen
-import com.example.medistore.newUserScreens.Login
+import com.example.medistore.newUserScreens.SignUp.CollectBasicInfo
+import com.example.medistore.newUserScreens.SignUp.VerifyEmail
 import com.example.medistore.ui.theme.MediStoreTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,8 +21,10 @@ class MainActivity : ComponentActivity() {
             MediStoreTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Box(modifier = Modifier.padding(innerPadding)) {
-                       IntroScreen()
-
+                       //IntroScreen()
+                        //Login()
+                        //CollectBasicInfo()
+                        VerifyEmail()
                     }
                 }
             }
